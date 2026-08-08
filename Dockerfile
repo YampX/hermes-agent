@@ -80,6 +80,7 @@ ENV HERMES_HOME=/opt/data
 ENV HERMES_WRITE_SAFE_ROOT=/opt/data
 ENV HERMES_DISABLE_LAZY_INSTALLS=1
 ENV HERMES_LAZY_INSTALL_TARGET=/opt/data/lazy-packages
+ENV HERMES_ALLOW_ROOT_GATEWAY=1
 ENV PATH="/opt/hermes/.venv/bin:/opt/data/.local/bin:${PATH}"
 
 RUN mkdir -p /opt/data
