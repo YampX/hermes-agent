@@ -28,7 +28,7 @@ if [ -z "${HERMES_MAIN_WRAPPER_ENV_READY:-}" ] && \
 fi
 unset HERMES_MAIN_WRAPPER_ENV_READY
 
-drop() { [ "$(id -u)" = 0 ] && set -- s6-setuidgid hermes "$@"; exec "$@"; }
+drop() { [ "$(id -u)" = 0 ] && [ -z "${HERMES_RUN_AS_ROOT:-}" ] && set -- s6-setuidgid hermes "$@"; exec "$@"; }
 
 # --- Reject the unsupported `docker run --user <uid>:<gid>` start ---
 # Mirror the guard in stage2-hook.sh (cont-init). This is the surface the
